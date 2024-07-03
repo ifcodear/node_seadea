@@ -4,7 +4,11 @@
   "main": "AppPrincipal.js",
   "scripts": {
     "start":"node AlexisKuseman.js",
-    "dev": "nodemon AlexisKuseman.js"
+    "dev": "nodemon AlexisKuseman.js",
+    "migrate": "sequelize db:migrate --url  sqlite://$(pwd)/dblogistica.sqlite",
+    "unmigrate": "sequelize db:migrate:undo:all --url  sqlite://$(pwd)/dblogistica.sqlite",
+    "seed": "sequelize db:seed:all --url  sqlite://$(pwd)/dblogistica.sqlite",
+    "unseed": "sequelize db:seed:undo:all --url sqlite://$(pwd)/dblogistica.sqlite"
   },
   "author": "Alexis Kuseman",
   "license": "ISC",
