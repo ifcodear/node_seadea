@@ -1,0 +1,21 @@
+{
+  "name": "semana-13",
+  "version": "1.0.0",
+  "main": "AppPrincipal.js",
+  "scripts": {
+    "dev": "nodemon AlexisKuseman.js"
+  },
+  "author": "Alexis Kuseman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "sequelize": "^6.37.3",
+    "sequelize-cli": "^6.6.2",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "keywords": [],
+  "description": ""
+}
