@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "AppPrincipal.js",
   "scripts": {
+    "start":"AlexisKuseman.js",
     "dev": "nodemon AlexisKuseman.js"
   },
   "author": "Alexis Kuseman",

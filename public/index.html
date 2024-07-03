@@ -128,7 +128,7 @@
             const licencia = document.getElementById('create-licencia').value;
             const edad = document.getElementById('create-edad').value;
 
-            const response = await fetch('http://localhost:7777/choferes', {
+            const response = await fetch('http://localhost:3000/choferes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -140,7 +140,7 @@
         }
 
         async function getAllChoferes() {
-            const response = await fetch('http://localhost:7777/choferes');
+            const response = await fetch('http://localhost:3000/choferes');
             const choferes = await response.json();
             document.getElementById('choferes-response').innerText = JSON.stringify(choferes, null, 2);
         }
@@ -152,7 +152,7 @@
                 document.getElementById('chofer-response').innerText = "No existe chofer";
             }else
             {
-                const response = await fetch(`http://localhost:7777/choferes/${dni}`);
+                const response = await fetch(`http://localhost:3000/choferes/${dni}`);
                 const chofer = await response.json();
                 document.getElementById('chofer-response').innerText = JSON.stringify(chofer, null, 2);
             }
@@ -165,7 +165,7 @@
             const apellido = document.getElementById('update-apellido').value;
             const edad = document.getElementById('update-edad').value;
 
-            const response = await fetch(`http://localhost:7777/choferes/${dni}`, {
+            const response = await fetch(`http://localhost:3000/choferes/${dni}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -178,7 +178,7 @@
 
         async function deleteChofer() {
             const nombre = document.getElementById('delete-nombre').value;
-            const response = await fetch(`http://localhost:7777/choferes/${nombre}`, {
+            const response = await fetch(`http://localhost:3000/choferes/${nombre}`, {
                 method: 'DELETE'
             });
             const result = await response.text();
