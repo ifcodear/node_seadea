@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser"); // Middleware para parsear a Json la rta
-const port = process.argv[2] || 7777;
+const port = process.argv[2] || 3000;
 
 // Importo tablas del archivo de modelo
 const Choferes = require("./modelo.js").models.Choferes;
@@ -183,9 +183,12 @@ app.post("/habilitaciones", async (req, res) => {
 app.get("/habilitaciones/:id_chofer/:id_vehiculo", async (req, res) => {
   try {
     let habilitacion = await Habilitaciones.findOne({
-      where: { id_chofer: req.params.id_chofer, id_vehiculo: id_vehiculo },
+      where: {
+        id_chofer: req.params.id_chofer,
+        id_vehiculo: OPEN_READWRITE.params.id_vehiculo,
+      },
     });
-    res.json(vehiculo);
+    res.json(habilitacion);
   } catch (error) {
     console.error("Error al leer Vehiculo:", error);
     res.status(500).send("Error al leer Vehiculo");
