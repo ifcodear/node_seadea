@@ -179,33 +179,33 @@ app.post("/habilitaciones", async (req, res) => {
     res.status(500).send("Error al crear habilitacion");
   }
 });
-// Read habilitaciones por parametros id_chofer id_vheiculo
-// app.get("/habilitaciones/:id_chofer/:id_vehiculo", async (req, res) => {
-//   try {
-//     let habilitacion = await Habilitaciones.findOne({
-//       where: {
-//         id_chofer: req.params.id_chofer,
-//         id_vehiculo: OPEN_READWRITE.params.id_vehiculo,
-//       },
-//     });
-//     res.json(habilitacion);
-//   } catch (error) {
-//     console.error("Error al leer Vehiculo:", error);
-//     res.status(500).send("Error al leer Vehiculo");
-//   }
-// });
-// //Delete habilitaciones
-// app.delete("/habilitaciones/:id_chofer/:id_vehiculo", async (req, res) => {
-//   const { id_chofer, id_vehiculo } = req.params;
-//   try {
-//     await Habilitaciones.destroy({ where: { id_chofer, id_vehiculo } });
-//     res.send("habilitacion eliminada con éxito");
-//   } catch (error) {
-//     console.error("Error al eliminar la habilitacion:", error);
-//     res.status(500).send("Error al eliminar la habilitacion");
-//   }
-// });
-// Iniciar el servidor
+//Read habilitaciones por parametros id_chofer id_vheiculo
+app.get("/habilitaciones/:id_chofer/:id_vehiculo", async (req, res) => {
+  try {
+    let habilitacion = await Habilitaciones.findOne({
+      where: {
+        id_chofer: req.params.id_chofer,
+        id_vehiculo: OPEN_READWRITE.params.id_vehiculo,
+      },
+    });
+    res.json(habilitacion);
+  } catch (error) {
+    console.error("Error al leer Vehiculo:", error);
+    res.status(500).send("Error al leer Vehiculo");
+  }
+});
+//Delete habilitaciones
+app.delete("/habilitaciones/:id_chofer/:id_vehiculo", async (req, res) => {
+  const { id_chofer, id_vehiculo } = req.params;
+  try {
+    await Habilitaciones.destroy({ where: { id_chofer, id_vehiculo } });
+    res.send("habilitacion eliminada con éxito");
+  } catch (error) {
+    console.error("Error al eliminar la habilitacion:", error);
+    res.status(500).send("Error al eliminar la habilitacion");
+  }
+});
+//Iniciar el servidor
 app.listen(port, () => {
   console.log(`Servidor Express escuchando en el puerto ${port}`);
 });
